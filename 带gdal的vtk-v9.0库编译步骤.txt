@@ -1,0 +1,48 @@
+带gdal的vtk-v9.0库编译步骤
+1.	用miniconda3安装gdal-3.4.0
+1.1	安装miniconda3
+1.2	打开Anaconda Prompt
+1.3	输入命令 conda install -c conda-forge gdal=3.4.0
+
+2.	配置VTK-v9.0的CMakeLists
+2.1	下载项目中download/vtk-v9.0.3.zip(或从https://gitlab.kitware.com/vtk/vtk/-/archive/v9.0.3/vtk-v9.0.3.zip)，解压到d:/devel/vtk-v9.0.3
+2.2	在d:/devel/vtk-v9.0.3目录下的CMakeLists.txt中增加以下内容：
+if (VTK_ENABLE_GDAL)
+  list(APPEND vtk_request_modules
+	VTK::IOGDAL)
+endif ()
+2.3 修改D:\devel\vtk-v9.0.3\IO\GDAL\CMakeLists.txt成以下内容：
+#vtk_module_find_package(PACKAGE GDAL)
+
+set(classes
+  vtkGDAL
+  vtkGDALVectorReader
+  vtkGDALRasterReader)
+
+vtk_module_add_module(VTK::IOGDAL
+  CLASSES ${classes})
+#vtk_module_link(VTK::IOGDAL
+#  PRIVATE
+#    GDAL::GDAL)
+
+3.	用cmake-gui配置vtk
+3.1	打开cmake-gui
+3.2 配置源码在哪里（Where is the source code:）D:/devel/vtk-v9.0.3
+3.3 在D:/devel/vtk-v9.0.3创建目录build, 配置创建二进制在哪（Where to build the binaries:）D:/devel/vtk-v9.0.3/build
+3.4 点Configure钮，选vs2017，选X64，点finish
+3.5	勾选Grouped，勾选Advanced，配VTK_GROUP_ENABLE_Qt为YES，点Configure钮
+3.6 配Qt5_DIR到如：C:\Qt\Qt5.9.9\5.9.9\msvc2017_64\lib\cmake\Qt5，配VTK_MODULE_ENABLE_VTK_IOGDAL，点Configure钮
+3.7 点Generate钮，无误后点Open Project钮打开vs2017
+
+4.	在vs2017中配置IOGDAL项目
+4.1	在IOGDAL项目属性C/C++属性中添加附件包含目录如：C:\ProgramData\miniconda3\Library\include;
+4.2	在IOGDAL项目属性链接器属性中添加附件包含目录如：C:\ProgramData\miniconda3\Library\lib; 输入/附加依赖项中添加：gdal_i.lib
+4.3 编译解决方案
+4.4 改用管理员打开vs2017，打开vtk-v9.0方案，生成INSTALL项目会安装VTK库到C:\Program Files\VTK
+
+5.	使用VTK-V9.0库
+5.1 在项目属性C/C++属性中添加附件包含目录如：C:\Program Files\VTK\include\vtk-9.0
+5.2	在项目属性链接器属性中添加附件包含目录如：C:\Program Files\VTK\lib;输入/附加依赖项中添加：vtkChartsCore-9.0.lib;vtkCommonColor-9.0.lib;vtkCommonComputationalGeometry-9.0.lib;vtkCommonCore-9.0.lib;vtkCommonDataModel-9.0.lib;vtkCommonExecutionModel-9.0.lib;vtkCommonMath-9.0.lib;vtkCommonMisc-9.0.lib;vtkCommonSystem-9.0.lib;vtkCommonTransforms-9.0.lib;vtkDICOMParser-9.0.lib;vtkDomainsChemistry-9.0.lib;vtkdoubleconversion-9.0.lib;vtkexodusII-9.0.lib;vtkexpat-9.0.lib;vtkFiltersAMR-9.0.lib;vtkFiltersCore-9.0.lib;vtkFiltersExtraction-9.0.lib;vtkFiltersFlowPaths-9.0.lib;vtkFiltersGeneral-9.0.lib;vtkFiltersGeneric-9.0.lib;vtkFiltersGeometry-9.0.lib;vtkFiltersHybrid-9.0.lib;vtkFiltersHyperTree-9.0.lib;vtkFiltersImaging-9.0.lib;vtkFiltersModeling-9.0.lib;vtkFiltersParallel-9.0.lib;vtkFiltersParallelImaging-9.0.lib;vtkFiltersPoints-9.0.lib;vtkFiltersProgrammable-9.0.lib;vtkFiltersSelection-9.0.lib;vtkFiltersSMP-9.0.lib;vtkFiltersSources-9.0.lib;vtkFiltersStatistics-9.0.lib;vtkFiltersTexture-9.0.lib;vtkFiltersTopology-9.0.lib;vtkFiltersVerdict-9.0.lib;vtkfreetype-9.0.lib;vtkGeovisCore-9.0.lib;vtkgl2ps-9.0.lib;vtkglew-9.0.lib;vtkGUISupportQt-9.0.lib;vtkGUISupportQtSQL-9.0.lib;vtkhdf5-9.0.lib;vtkhdf5_hl-9.0.lib;vtkImagingColor-9.0.lib;vtkImagingCore-9.0.lib;vtkImagingFourier-9.0.lib;vtkImagingGeneral-9.0.lib;vtkImagingHybrid-9.0.lib;vtkImagingMath-9.0.lib;vtkImagingMorphological-9.0.lib;vtkImagingSources-9.0.lib;vtkImagingStatistics-9.0.lib;vtkImagingStencil-9.0.lib;vtkInfovisCore-9.0.lib;vtkInfovisLayout-9.0.lib;vtkInteractionImage-9.0.lib;vtkInteractionStyle-9.0.lib;vtkInteractionWidgets-9.0.lib;vtkIOAMR-9.0.lib;vtkIOAsynchronous-9.0.lib;vtkIOCityGML-9.0.lib;vtkIOCore-9.0.lib;vtkIOEnSight-9.0.lib;vtkIOExodus-9.0.lib;vtkIOExport-9.0.lib;vtkIOExportGL2PS-9.0.lib;vtkIOExportPDF-9.0.lib;vtkIOGDAL-9.0.lib;vtkIOGeometry-9.0.lib;vtkIOImage-9.0.lib;vtkIOImport-9.0.lib;vtkIOInfovis-9.0.lib;vtkIOLegacy-9.0.lib;vtkIOLSDyna-9.0.lib;vtkIOMINC-9.0.lib;vtkIOMotionFX-9.0.lib;vtkIOMovie-9.0.lib;vtkIONetCDF-9.0.lib;vtkIOOggTheora-9.0.lib;vtkIOParallel-9.0.lib;vtkIOParallelXML-9.0.lib;vtkIOPLY-9.0.lib;vtkIOSegY-9.0.lib;vtkIOSQL-9.0.lib;vtkIOTecplotTable-9.0.lib;vtkIOVeraOut-9.0.lib;vtkIOVideo-9.0.lib;vtkIOXML-9.0.lib;vtkIOXMLParser-9.0.lib;vtkjpeg-9.0.lib;vtkjsoncpp-9.0.lib;vtklibharu-9.0.lib;vtklibproj-9.0.lib;vtklibxml2-9.0.lib;vtkloguru-9.0.lib;vtklz4-9.0.lib;vtklzma-9.0.lib;vtkmetaio-9.0.lib;vtknetcdf-9.0.lib;vtkogg-9.0.lib;vtkParallelCore-9.0.lib;vtkParallelDIY-9.0.lib;vtkpng-9.0.lib;vtkpugixml-9.0.lib;vtkRenderingAnnotation-9.0.lib;vtkRenderingContext2D-9.0.lib;vtkRenderingCore-9.0.lib;vtkRenderingFreeType-9.0.lib;vtkRenderingGL2PSOpenGL2-9.0.lib;vtkRenderingImage-9.0.lib;vtkRenderingLabel-9.0.lib;vtkRenderingLOD-9.0.lib;vtkRenderingOpenGL2-9.0.lib;vtkRenderingQt-9.0.lib;vtkRenderingSceneGraph-9.0.lib;vtkRenderingUI-9.0.lib;vtkRenderingVolume-9.0.lib;vtkRenderingVolumeOpenGL2-9.0.lib;vtkRenderingVtkJS-9.0.lib;vtksqlite-9.0.lib;vtksys-9.0.lib;vtkTestingRendering-9.0.lib;vtktheora-9.0.lib;vtktiff-9.0.lib;vtkverdict-9.0.lib;vtkViewsContext2D-9.0.lib;vtkViewsCore-9.0.lib;vtkViewsInfovis-9.0.lib;vtkViewsQt-9.0.lib;vtkWrappingTools-9.0.lib;vtkzlib-9.0.lib;vtkDomainsChemistryOpenGL2-9.0.lib;vtkRenderingContextOpenGL2-9.0.lib;
+5.3 编译通过后，把C:\Program Files\VTK\bin的所有dll库文件拷到执行目录中，把引用到的gdal及相关动态库从C:\ProgramData\miniconda3\Library\bin拷贝
+5.4 安装download中的MSMpiSetup.exe(gdal中调用的hdf5的依赖库)
+5.5 测试/运行

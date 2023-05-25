@@ -1,0 +1,86 @@
+添加Geotiff支持准备过程
+//替换	为
+
+// GlobalInclude.h
+enum NodeType
+	NODE_G_GEOTIFF_TYPE,
+
+// NodeParaters.h
+struct G_Geotiff : public SuperNodeStruct
+
+// str_def.h
+#define STRING_GTYPE_GEOTIFF			"geotiff_widget"
+
+
+// str_lang.h
+#define STRING_ACTION_GEOTIFF		tr(u8"地理tiff图")
+#define STRING_LABEL_GEOTIFF			tr(u8"TIFF图")
+
+// base_property_widget.h
+// 计算节点的渲染图形菜单
+#define MENU_RENDER_CALC_NODE(out_put, receiver1)
+out_put->addAction(STRING_ACTION_GEOTIFF, receiver1, SLOT(create_geotiff())); 	\
+
+// threeDdetectSystem.h
+public slots:
+	void create_geotiff();
+	void delete_geotiff();
+	
+// threeDdetectSystem.cpp
+#include "geotiff_property_widget.h"
+void threeDdetectSystem::delete_geotiff() 
+void threeDdetectSystem::create_geotiff() 
+
+// XmlProject.cpp
+createNodeFromElement()
+	case NODE_G_GEOTIFF_TYPE: {
+			pNode = std::make_shared<GGeotiffNode>(shared_from_this());
+	}break;
+	
+createSurperNode()
+	case NODE_G_GEOTIFF_TYPE: {
+		std::shared_ptr<GGeotiffNode> Node = std::make_shared<GGeotiffNode>(shared_from_this());
+		Node->setParameter(pNodeInfo);
+		pNode = Node;
+	}break;
+	
+getNodeParameter()
+	case NODE_G_GEOTIFF_TYPE:
+	{
+		std::shared_ptr<GGeotiffNode> node1 = std::dynamic_pointer_cast<GGeotiffNode>(node);
+		if (!node1)
+			return std::make_shared<SuperNodeStruct>();
+		return node1->getParameter();
+	}
+		break;
+		
+// geotiff_property_widget.h
+拷贝picture_property_widget.h	为geotiff_property_widget.h，
+替换picture_property_widget		为geotiff_property_widget
+替换G_Picture					为 G_Geotiff
+替换 GPictureNode				为 GGeotiffNode
+修改 void sig_delete_picture(); 为 	void sig_delete_geotiff();
+
+// geotiff_property_widget.cpp
+拷贝picture_property_widget.cpp	为geotiff_property_widget.cpp，
+替换picture_property_widget		为geotiff_property_widget
+替换 STRING_LABEL_PICTURE		为 STRING_LABEL_GEOTIFF
+替换G_Picture					为 G_Geotiff
+delete_self()中修改 emit sig_delete_picture(); 为 emit void sig_delete_geotiff();
+
+// GGeotiffNode.h
+拷贝GPictureNode.h			为GGeotiffNode.h
+替换GPictureNode				为GGeotiffNode
+替换G_Picture					为 G_Geotiff
+
+// GGeotiffNode.cpp
+拷贝GPictureNode.cpp			为GGeotiffNode.cpp
+替换GPictureNode				为GGeotiffNode
+替换NODE_G_PICTURE_TYPE			为NODE_G_GEOTIFF_TYPE
+替换G_Picture					为 G_Geotiff
+
+
+// NodeHeader.h
+#include "GGeotiffNode.h"
+
+然后按功能增删代码、调试适配

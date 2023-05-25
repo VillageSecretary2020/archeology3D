@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{633616A8-99F3-41FF-992D-18EC17A948BB}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>5.9.9_msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="QtSettings">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>5.9.9_msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+    <QtQMLDebugEnable>false</QtQMLDebugEnable>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="QtSettings">
+    <QtInstall>5.9.3_msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+    <QtQMLDebugEnable>false</QtQMLDebugEnable>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutDir>$(SolutionDir)/bin/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)../temp/$(Platform)/$(Configuration)\</IntDir>
+    <IncludePath>../threeParts\opencvinclude\include;../threeParts\opencvinclude\include\opencv2;../threeParts\vtkinclude;../threeParts\opencvinclude\include\opencv;$(IncludePath)</IncludePath>
+    <LibraryPath>../threeParts\opencvlib;../threeParts\vtklib\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)/bin/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)../temp/$(Platform)/$(Configuration)\</IntDir>
+    <IncludePath>../threeParts\opencvinclude\include;../threeParts\opencvinclude\include\opencv;../threeParts\opencvinclude\include\opencv2;../threeParts\vtkinclude;$(IncludePath)</IncludePath>
+    <LibraryPath>../threeParts\opencvlib;../threeParts\vtklib\Release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)/bin/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)../temp/$(Platform)/$(Configuration)\</IntDir>
+    <IncludePath>../threeParts\opencvinclude\include;../threeParts\opencvinclude\include\opencv2;C:\Users\admin\Desktop\workspace\threeDDetect\threeParts\vtkinclude;../threeParts\vtkinclude;../threeParts\opencvinclude\include\opencv;C:\Program Files\VTK\include\vtk-8.2;$(IncludePath)</IncludePath>
+    <LibraryPath>../threeParts\vtklib;C:\Users\admin\Desktop\workspace\threeDDetect\threeParts\vtklib;../threeParts\opencvlib;C:\Program Files\VTK\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>vtkChartsCore-9.0.lib;vtkCommonColor-9.0.lib;vtkCommonComputationalGeometry-9.0.lib;vtkCommonCore-9.0.lib;vtkCommonDataModel-9.0.lib;vtkCommonExecutionModel-9.0.lib;vtkCommonMath-9.0.lib;vtkCommonMisc-9.0.lib;vtkCommonSystem-9.0.lib;vtkCommonTransforms-9.0.lib;vtkDICOMParser-9.0.lib;vtkDomainsChemistry-9.0.lib;vtkdoubleconversion-9.0.lib;vtkexodusII-9.0.lib;vtkexpat-9.0.lib;vtkFiltersAMR-9.0.lib;vtkFiltersCore-9.0.lib;vtkFiltersExtraction-9.0.lib;vtkFiltersFlowPaths-9.0.lib;vtkFiltersGeneral-9.0.lib;vtkFiltersGeneric-9.0.lib;vtkFiltersGeometry-9.0.lib;vtkFiltersHybrid-9.0.lib;vtkFiltersHyperTree-9.0.lib;vtkFiltersImaging-9.0.lib;vtkFiltersModeling-9.0.lib;vtkFiltersParallel-9.0.lib;vtkFiltersParallelImaging-9.0.lib;vtkFiltersPoints-9.0.lib;vtkFiltersProgrammable-9.0.lib;vtkFiltersSelection-9.0.lib;vtkFiltersSMP-9.0.lib;vtkFiltersSources-9.0.lib;vtkFiltersStatistics-9.0.lib;vtkFiltersTexture-9.0.lib;vtkFiltersTopology-9.0.lib;vtkFiltersVerdict-9.0.lib;vtkfreetype-9.0.lib;vtkGeovisCore-9.0.lib;vtkgl2ps-9.0.lib;vtkglew-9.0.lib;vtkGUISupportQt-9.0.lib;vtkGUISupportQtSQL-9.0.lib;vtkhdf5-9.0.lib;vtkhdf5_hl-9.0.lib;vtkImagingColor-9.0.lib;vtkImagingCore-9.0.lib;vtkImagingFourier-9.0.lib;vtkImagingGeneral-9.0.lib;vtkImagingHybrid-9.0.lib;vtkImagingMath-9.0.lib;vtkImagingMorphological-9.0.lib;vtkImagingSources-9.0.lib;vtkImagingStatistics-9.0.lib;vtkImagingStencil-9.0.lib;vtkInfovisCore-9.0.lib;vtkInfovisLayout-9.0.lib;vtkInteractionImage-9.0.lib;vtkInteractionStyle-9.0.lib;vtkInteractionWidgets-9.0.lib;vtkIOAMR-9.0.lib;vtkIOAsynchronous-9.0.lib;vtkIOCityGML-9.0.lib;vtkIOCore-9.0.lib;vtkIOEnSight-9.0.lib;vtkIOExodus-9.0.lib;vtkIOExport-9.0.lib;vtkIOExportGL2PS-9.0.lib;vtkIOExportPDF-9.0.lib;vtkIOGeometry-9.0.lib;vtkIOImage-9.0.lib;vtkIOImport-9.0.lib;vtkIOInfovis-9.0.lib;vtkIOLegacy-9.0.lib;vtkIOLSDyna-9.0.lib;vtkIOMINC-9.0.lib;vtkIOMotionFX-9.0.lib;vtkIOMovie-9.0.lib;vtkIONetCDF-9.0.lib;vtkIOOggTheora-9.0.lib;vtkIOParallel-9.0.lib;vtkIOParallelXML-9.0.lib;vtkIOPLY-9.0.lib;vtkIOSegY-9.0.lib;vtkIOSQL-9.0.lib;vtkIOTecplotTable-9.0.lib;vtkIOVeraOut-9.0.lib;vtkIOVideo-9.0.lib;vtkIOXML-9.0.lib;vtkIOXMLParser-9.0.lib;vtkjpeg-9.0.lib;vtkjsoncpp-9.0.lib;vtklibharu-9.0.lib;vtklibproj-9.0.lib;vtklibxml2-9.0.lib;vtkloguru-9.0.lib;vtklz4-9.0.lib;vtklzma-9.0.lib;vtkmetaio-9.0.lib;vtknetcdf-9.0.lib;vtkogg-9.0.lib;vtkParallelCore-9.0.lib;vtkParallelDIY-9.0.lib;vtkpng-9.0.lib;vtkpugixml-9.0.lib;vtkRenderingAnnotation-9.0.lib;vtkRenderingContext2D-9.0.lib;vtkRenderingCore-9.0.lib;vtkRenderingFreeType-9.0.lib;vtkRenderingGL2PSOpenGL2-9.0.lib;vtkRenderingImage-9.0.lib;vtkRenderingLabel-9.0.lib;vtkRenderingLOD-9.0.lib;vtkRenderingOpenGL2-9.0.lib;vtkRenderingQt-9.0.lib;vtkRenderingSceneGraph-9.0.lib;vtkRenderingUI-9.0.lib;vtkRenderingVolume-9.0.lib;vtkRenderingVolumeOpenGL2-9.0.lib;vtkRenderingVtkJS-9.0.lib;vtksqlite-9.0.lib;vtksys-9.0.lib;vtkTestingRendering-9.0.lib;vtktheora-9.0.lib;vtktiff-9.0.lib;vtkverdict-9.0.lib;vtkViewsContext2D-9.0.lib;vtkViewsCore-9.0.lib;vtkViewsInfovis-9.0.lib;vtkViewsQt-9.0.lib;vtkWrappingTools-9.0.lib;vtkzlib-9.0.lib;vtkDomainsChemistryOpenGL2-9.0.lib;vtkRenderingContextOpenGL2-9.0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../threeParts\vtklib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>../threeParts\vtkinclude;./temp\x64\Release\uic;./cparse;./xmlpaser;./funcNode;./funcNode\funcCaculate;./funcNode\funcGraph;./Global;./funcNode\otherNode;./logic;./childPage;./operationalLayer;./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/utf-8 /bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <AdditionalDependencies>opencv_world3410.lib;vtkChartsCore-9.0.lib;vtkCommonColor-9.0.lib;QVTKWidgetPlugin.lib;vtkCommonComputationalGeometry-9.0.lib;vtkCommonCore-9.0.lib;vtkCommonDataModel-9.0.lib;vtkCommonExecutionModel-9.0.lib;vtkCommonMath-9.0.lib;vtkCommonMisc-9.0.lib;vtkCommonSystem-9.0.lib;vtkCommonTransforms-9.0.lib;vtkDICOMParser-9.0.lib;vtkDomainsChemistry-9.0.lib;vtkdoubleconversion-9.0.lib;vtkexodusII-9.0.lib;vtkexpat-9.0.lib;vtkFiltersAMR-9.0.lib;vtkFiltersCore-9.0.lib;vtkFiltersExtraction-9.0.lib;vtkFiltersFlowPaths-9.0.lib;vtkFiltersGeneral-9.0.lib;vtkFiltersGeneric-9.0.lib;vtkFiltersGeometry-9.0.lib;vtkFiltersHybrid-9.0.lib;vtkFiltersHyperTree-9.0.lib;vtkFiltersImaging-9.0.lib;vtkFiltersModeling-9.0.lib;vtkFiltersParallel-9.0.lib;vtkFiltersParallelImaging-9.0.lib;vtkFiltersPoints-9.0.lib;vtkFiltersProgrammable-9.0.lib;vtkFiltersSelection-9.0.lib;vtkFiltersSMP-9.0.lib;vtkFiltersSources-9.0.lib;vtkFiltersStatistics-9.0.lib;vtkFiltersTexture-9.0.lib;vtkFiltersTopology-9.0.lib;vtkFiltersVerdict-9.0.lib;vtkfreetype-9.0.lib;vtkGeovisCore-9.0.lib;vtkgl2ps-9.0.lib;vtkglew-9.0.lib;vtkGUISupportQt-9.0.lib;vtkGUISupportQtSQL-9.0.lib;vtkhdf5-9.0.lib;vtkhdf5_hl-9.0.lib;vtkImagingColor-9.0.lib;vtkImagingCore-9.0.lib;vtkImagingFourier-9.0.lib;vtkImagingGeneral-9.0.lib;vtkImagingHybrid-9.0.lib;vtkImagingMath-9.0.lib;vtkImagingMorphological-9.0.lib;vtkImagingSources-9.0.lib;vtkImagingStatistics-9.0.lib;vtkImagingStencil-9.0.lib;vtkInfovisCore-9.0.lib;vtkInfovisLayout-9.0.lib;vtkInteractionImage-9.0.lib;vtkInteractionStyle-9.0.lib;vtkInteractionWidgets-9.0.lib;vtkIOAMR-9.0.lib;vtkIOAsynchronous-9.0.lib;vtkIOCityGML-9.0.lib;vtkIOCore-9.0.lib;vtkIOEnSight-9.0.lib;vtkIOExodus-9.0.lib;vtkIOExport-9.0.lib;vtkIOExportGL2PS-9.0.lib;vtkIOExportPDF-9.0.lib;vtkIOGeometry-9.0.lib;vtkIOImage-9.0.lib;vtkIOImport-9.0.lib;vtkIOInfovis-9.0.lib;vtkIOLegacy-9.0.lib;vtkIOLSDyna-9.0.lib;vtkIOMINC-9.0.lib;vtkIOMotionFX-9.0.lib;vtkIOMovie-9.0.lib;vtkIONetCDF-9.0.lib;vtkIOOggTheora-9.0.lib;vtkIOParallel-9.0.lib;vtkIOParallelXML-9.0.lib;vtkIOPLY-9.0.lib;vtkIOSegY-9.0.lib;vtkIOSQL-9.0.lib;vtkIOTecplotTable-9.0.lib;vtkIOVeraOut-9.0.lib;vtkIOVideo-9.0.lib;vtkIOXML-9.0.lib;vtkIOXMLParser-9.0.lib;vtkjpeg-9.0.lib;vtkjsoncpp-9.0.lib;vtklibharu-9.0.lib;vtklibproj-9.0.lib;vtklibxml2-9.0.lib;vtkloguru-9.0.lib;vtklz4-9.0.lib;vtklzma-9.0.lib;vtkmetaio-9.0.lib;vtknetcdf-9.0.lib;vtkogg-9.0.lib;vtkParallelCore-9.0.lib;vtkParallelDIY-9.0.lib;vtkpng-9.0.lib;vtkpugixml-9.0.lib;vtkRenderingAnnotation-9.0.lib;vtkRenderingContext2D-9.0.lib;vtkRenderingCore-9.0.lib;vtkRenderingFreeType-9.0.lib;vtkRenderingGL2PSOpenGL2-9.0.lib;vtkRenderingImage-9.0.lib;vtkRenderingLabel-9.0.lib;vtkRenderingLOD-9.0.lib;vtkRenderingOpenGL2-9.0.lib;vtkRenderingQt-9.0.lib;vtkRenderingSceneGraph-9.0.lib;vtkRenderingUI-9.0.lib;vtkRenderingVolume-9.0.lib;vtkRenderingVolumeOpenGL2-9.0.lib;vtkRenderingVtkJS-9.0.lib;vtksqlite-9.0.lib;vtksys-9.0.lib;vtkTestingRendering-9.0.lib;vtktheora-9.0.lib;vtktiff-9.0.lib;vtkverdict-9.0.lib;vtkViewsContext2D-9.0.lib;vtkViewsCore-9.0.lib;vtkViewsInfovis-9.0.lib;vtkViewsQt-9.0.lib;vtkWrappingTools-9.0.lib;vtkzlib-9.0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\VTK\lib;C:\Users\admin\Desktop\workspace\threeDDetect\threeParts\vtklib;F:\VTK-build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./temp\x64\Release\uic;./xmlpaser;./funcNode;./funcNode\funcCaculate;./funcNode\funcGraph;./Global;./funcNode\otherNode;./logic;C:\Users\admin\Desktop\workspace\threeDDetect\threeParts\vtkinclude;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="avilib\avilib.cpp" />
+    <ClCompile Include="childPage\annotation_property_widget.cpp" />
+    <ClCompile Include="childPage\axis_property_widget.cpp" />
+    <ClCompile Include="childPage\base_property_widget.cpp" />
+    <ClCompile Include="childPage\border_property_widget.cpp" />
+    <ClCompile Include="childPage\color_scale_property.cpp" />
+    <ClCompile Include="childPage\curve_slice_property_widget.cpp" />
+    <ClCompile Include="childPage\custom_button_left.cpp" />
+    <ClCompile Include="childPage\custom_button_right.cpp" />
+    <ClCompile Include="childPage\cut_plane_property.cpp" />
+    <ClCompile Include="childPage\dxf_property_widget.cpp" />
+    <ClCompile Include="childPage\exclusion_filter_property_widget.cpp" />
+    <ClCompile Include="childPage\geotiff_property_widget.cpp" />
+    <ClCompile Include="childPage\gridding_property_widget.cpp" />
+    <ClCompile Include="childPage\highlowmap_property_widget.cpp" />
+    <ClCompile Include="childPage\isoline_property_widget.cpp" />
+    <ClCompile Include="childPage\isosurface_property_widget.cpp" />
+    <ClCompile Include="childPage\myqwidget.cpp" />
+    <ClCompile Include="childPage\mytable.cpp" />
+    <ClCompile Include="childPage\My_QTreeWidgetItem.cpp" />
+    <ClCompile Include="childPage\new_project.cpp" />
+    <ClCompile Include="childPage\orthogonal_property_widget.cpp" />
+    <ClCompile Include="childPage\picture_property_widget.cpp" />
+    <ClCompile Include="childPage\repeat_filter_property_widget.cpp" />
+    <ClCompile Include="childPage\scatter_property_widget.cpp" />
+    <ClCompile Include="childPage\shape_render_property_widget.cpp" />
+    <ClCompile Include="childPage\slice_property_widget.cpp" />
+    <ClCompile Include="childPage\source_property_widget.cpp" />
+    <ClCompile Include="childPage\subset_property_widget.cpp" />
+    <ClCompile Include="childPage\surface_render_property_widget.cpp" />
+    <ClCompile Include="childPage\text_property_widget.cpp" />
+    <ClCompile Include="childPage\transform_property_widget.cpp" />
+    <ClCompile Include="childPage\vector_property_widget.cpp" />
+    <ClCompile Include="cparse\containers.cpp" />
+    <ClCompile Include="cparse\functions.cpp" />
+    <ClCompile Include="cparse\packToken.cpp" />
+    <ClCompile Include="cparse\shunting-yard.cpp" />
+    <ClCompile Include="funcNode\funcCaculate\CaculateNode.cpp" />
+    <ClCompile Include="funcNode\funcCaculate\CConversionNode.cpp" />
+    <ClCompile Include="funcNode\funcCaculate\CExclusionFilterNode.cpp" />
+    <ClCompile Include="funcNode\funcCaculate\CMeshNode.cpp" />
+    <ClCompile Include="funcNode\funcCaculate\CRepeatFilterNode.cpp" />
+    <ClCompile Include="funcNode\funcCaculate\CSubsetNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GAxisNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GBoundingBoxNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GCommentNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GCurveSliceNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GDxfNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GGeotiffNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GHighLowMapNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GIsoLineNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GIsoSurfaceNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GOrthogonal_factor.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GPictureNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GraphNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GScatterMapNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GSliceMapNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GSurfaceNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GTextNode.cpp" />
+    <ClCompile Include="funcNode\funcGraph\GVolumeRenderNode.cpp" />
+    <ClCompile Include="funcNode\otherNode\DDataNode.cpp" />
+    <ClCompile Include="funcNode\otherNode\GlobalInclude.cpp" />
+    <ClCompile Include="funcNode\otherNode\OColorBar.cpp" />
+    <ClCompile Include="funcNode\otherNode\OCuttingPlane.cpp" />
+    <ClCompile Include="funcNode\SurperNode.cpp" />
+    <ClCompile Include="Global\Interpolation.cpp" />
+    <ClCompile Include="Global\KDtree.cpp" />
+    <ClCompile Include="logic\OperationLogic.cpp" />
+    <ClCompile Include="logic\XmlProject.cpp" />
+    <ClCompile Include="operationalLayer\OperationalLayer.cpp" />
+    <ClCompile Include="xmlpaser\tinystr.cpp" />
+    <ClCompile Include="xmlpaser\tinyxml.cpp" />
+    <ClCompile Include="xmlpaser\tinyxmlerror.cpp" />
+    <ClCompile Include="xmlpaser\tinyxmlparser.cpp" />
+    <QtMoc Include="threeDdetectSystem.h" />
+    <ClCompile Include="threeDdetectSystem.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="childPage\axis_property_widget.h" />
+    <QtMoc Include="childPage\base_property_widget.h" />
+    <QtMoc Include="childPage\annotation_property_widget.h" />
+    <QtMoc Include="childPage\border_property_widget.h" />
+    <QtMoc Include="childPage\color_scale_property.h" />
+    <QtMoc Include="childPage\cut_plane_property.h" />
+    <QtMoc Include="childPage\exclusion_filter_property_widget.h" />
+    <QtMoc Include="childPage\gridding_property_widget.h" />
+    <QtMoc Include="childPage\isoline_property_widget.h" />
+    <QtMoc Include="childPage\isosurface_property_widget.h" />
+    <QtMoc Include="childPage\My_QTreeWidgetItem.h" />
+    <QtMoc Include="childPage\myqwidget.h" />
+    <QtMoc Include="childPage\mytable.h" />
+    <ClInclude Include="avilib\avilib.h" />
+    <QtMoc Include="childPage\curve_slice_property_widget.h" />
+    <ClInclude Include="childPage\custom_button_left.h" />
+    <ClInclude Include="childPage\custom_button_right.h" />
+    <QtMoc Include="childPage\highlowmap_property_widget.h" />
+    <QtMoc Include="childPage\new_project.h" />
+    <QtMoc Include="childPage\orthogonal_property_widget.h" />
+    <QtMoc Include="childPage\repeat_filter_property_widget.h" />
+    <QtMoc Include="childPage\scatter_property_widget.h" />
+    <QtMoc Include="childPage\shape_render_property_widget.h" />
+    <QtMoc Include="childPage\slice_property_widget.h" />
+    <QtMoc Include="childPage\source_property_widget.h" />
+    <QtMoc Include="childPage\subset_property_widget.h" />
+    <QtMoc Include="childPage\surface_render_property_widget.h" />
+    <QtMoc Include="childPage\text_property_widget.h" />
+    <QtMoc Include="childPage\vector_property_widget.h" />
+    <QtMoc Include="childPage\transform_property_widget.h" />
+    <QtMoc Include="childPage\dxf_property_widget.h" />
+    <QtMoc Include="childPage\geotiff_property_widget.h" />
+    <ClInclude Include="childPage\istyle.h" />
+    <QtMoc Include="childPage\picture_property_widget.h" />
+    <ClInclude Include="cparse\shunting-yard-exceptions.h" />
+    <ClInclude Include="cparse\shunting-yard.h" />
+    <ClInclude Include="funcNode\funcCaculate\CaculateNode.h" />
+    <ClInclude Include="funcNode\funcCaculate\CConversionNode.h" />
+    <ClInclude Include="funcNode\funcCaculate\CExclusionFilterNode.h" />
+    <ClInclude Include="funcNode\funcCaculate\CMeshNode.h" />
+    <ClInclude Include="funcNode\funcCaculate\CRepeatFilterNode.h" />
+    <ClInclude Include="funcNode\funcCaculate\CSubsetNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GAxisNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GBoundingBoxNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GCommentNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GCurveSliceNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GGeotiffNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GHighLowMapNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GIsoLineNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GIsoSurfaceNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GOrthogonal_factor.h" />
+    <ClInclude Include="funcNode\funcGraph\GPictureNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GraphNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GScatterMapNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GSliceMapNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GSurfaceNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GTextNode.h" />
+    <ClInclude Include="funcNode\funcGraph\GVolumeRenderNode.h" />
+    <ClInclude Include="funcNode\otherNode\DDataNode.h" />
+    <ClInclude Include="funcNode\otherNode\GlobalInclude.h" />
+    <ClInclude Include="funcNode\otherNode\OColorBar.h" />
+    <ClInclude Include="funcNode\otherNode\OCuttingPlane.h" />
+    <ClInclude Include="funcNode\SurperNode.h" />
+    <ClInclude Include="Global\Interpolation.h" />
+    <ClInclude Include="Global\KDtree.h" />
+    <ClInclude Include="Global\MyHeaps.h" />
+    <ClInclude Include="Global\NodeHeader.h" />
+    <ClInclude Include="Global\NodeParaters.h" />
+    <ClInclude Include="logic\OperationLogic.h" />
+    <ClInclude Include="logic\XmlProject.h" />
+    <ClInclude Include="operationalLayer\OperationalLayer.h" />
+    <ClInclude Include="str_def.h" />
+    <ClInclude Include="str_lang.h" />
+    <ClInclude Include="xmlpaser\tinystr.h" />
+    <ClInclude Include="xmlpaser\tinyxml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="icon\threeDdetectSystem.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="threeDdetectSystem.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Global\xmlStruct.xml">
+      <SubType>Designer</SubType>
+    </Text>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

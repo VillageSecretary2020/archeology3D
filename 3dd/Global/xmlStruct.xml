@@ -1,0 +1,192 @@
+<!-- /*
+// Copyright (C)  合肥鼎方
+// 版权所有。 
+//
+// 文件功能描述：
+//
+// 
+// 创建者：tangao 
+//
+// 修改人：
+// 时间：
+// 修改说明：
+//
+//*/
+#pragma once -->
+
+<!-- GScatterNode:
+putIn : 输入源；density:密度，抽稀比例；dataIndex: 输入数据源序列号；insertMethodScatterMap:插值方式
+symbol:符号；symbolSize:符号大小；
+showOn:是否显示标注；labelMarkIndex:标注的字段；densityIndex:密度序号；showLine:是否显示引线；markType:标注类型；numCount:有效数字
+showOn:是否显示色标；xpos:X轴位置；ypos:Y轴位置；width:宽度；height:长度
+type:摆放方向
+text:标题文字；fontSize:文字大小
+num:标注数量；fondSize:标注字号大小；customOn:是否采用自定义标注；type:标注格式类型；decimalDigits:小数位数；preText:标注前缀；lastText:标注后缀
+useRgb:是否使用rgb渲染颜色(false：使用渐变色谱；true：rgb渲染)；color_r/color_g/color_b:rgb颜色值
+-->
+
+<!--<Parameters putIn ="" density ="" dataIndex="" insertMethodScatterMap ="">
+	<RenderscatterMap symbol="" symbolSize="">
+		<Label_mark_Scatter showOn="" labelMarkIndex="" densityIndex="" showLine="" markType="" numCount="">	
+		</Label_mark_Scatter>
+		<ColorBar showOn="" xpos="" ypos="" width="" height="">
+			<ColorBarDirection type="">
+			</ColorBarDirection>
+			<Title text="" fontSize="">
+			</Title>
+			<LabelMark num="" fontSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+			</LabelMark>
+		</ColorBar>
+		<ColorRgb useRgb="" color_r="" color_g="" color_b="" gradientMapIndex="">
+		</ColorRgb>
+	</RenderscatterMap>
+</Parameters>-->
+
+
+
+<!-- GSurfaceNode
+putIn:输入源；putIndex:输入分量；blockNum:块数量；meanBlock:平均块数；isCalculateVolume:是否计算体积；volume:体积
+displayEdge:是否显示边缘；colorMethod：着色方法；gradientMapIndex:渐变色谱序列号
+color_r/color_g/color_b:边缘颜色
+limits_x:X轴坐标限制；limits_y:Y轴坐标限制；limits_z:Z轴坐标限制
+displayOn:是否显示色标；direction:摆放方向；xpos:x轴位置；ypos:Y轴位置；width:宽度；height:长度
+text:标题文字；fondSize:文字大小
+num:标注数量；fondSize:字号大小；customOn:是否采用自定义标注；type:标注格式类型；decimalDigits:小数位数；preText:标注前缀；lastText:标注后缀
+-->
+
+
+<!--<Parameters putIn="" putIndex="" blockNum="" meanBlock="" isCalculateVolume="" volume="">
+	<RenderSurface displayEdge="" colorMethod="" gradientMapIndex="">
+		<EdgeColor color_r="" color_g="" color_b="">
+		</EdgeColor>
+	</RenderSurface>
+	<Geometric>
+    <CoordinateLimit_X firstNodeOfAxis="" lastNodeOfAxis="" singleSlice="">
+    </CoordinateLimit_X>
+    <CoordinateLimit_Y firstNodeOfAxis="" lastNodeOfAxis="" singleSlice="">
+    </CoordinateLimit_Y>
+    <CoordinateLimit_Z firstNodeOfAxis="" lastNodeOfAxis="" singleSlice="">
+    </CoordinateLimit_Z>
+	</Geometric>
+	<ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+		<Text text="" fontSize=""></Text>
+		<LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+		</LabelMark>
+	</ColorBar>
+</Parameters>-->
+
+
+
+<!--GCommentNode
+
+-->
+
+<!--<Parameters text="" fontType="" fontSize="" xpos="" ypos="" align="">
+  <ColorRgb color_r="" color_g="" color_b="">
+  </ColorRgb>
+</Parameters>-->
+
+
+<!--
+GTextNode
+-->
+
+<!--<Parameters text="" fontType="" fontSize="">
+  <ColorRgb color_r="" color_g="" color_b="">
+  </ColorRgb>
+  <PosXYZ xpos ="" ypos="" zpos=""></PosXYZ>
+</Parameters>-->
+
+
+
+<!-- GOrthogonalFactorNode
+-->
+
+<!--<Parameters putIn="" putIndex="" direction="" setId="" colorMethod="" gradientMap="">
+  <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+    <Text text="" fontSize=""></Text>
+    <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+    </LabelMark>
+  </ColorBar>
+</Parameters>-->
+
+
+
+<!-- GVolumeRenderNode
+-->
+
+<!--<Parameters putIn="" putIndex="" renderMethod="">
+  <AlphaMethod insertMethod="" rendMode="" sampleDistance="" colorMethod="" gradientMap="" opacity="">
+    <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+      <Text text="" fontSize=""></Text>
+      <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+      </LabelMark>
+    </ColorBar>
+  </AlphaMethod>
+  <MaxiMumStrengthMethod insertMethod="" renderMode="" sampleDistance="" colorMethod="" gradientMap="" opacity="">
+    <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+      <Text text="" fontSize=""></Text>
+      <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+      </LabelMark>
+    </ColorBar>
+  </MaxiMumStrengthMethod>
+  <MiniMunStrengthMethod insertMethod="" renderMode="" sampleDistance="" colorMethod="" gradientMap="" opacity="">
+    <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+      <Text text="" fontSize=""></Text>
+      <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+      </LabelMark>
+    </ColorBar>
+  </MiniMunStrengthMethod>
+  <AverageStrengthMethod insertMethod="" renderMode="" sampleDistance="" averageIPScalarRange_1="" averageIPScalarRange_2="" colorMethod="" gradientMap="" opacity="">
+    <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+      <Text text="" fontSize=""></Text>
+      <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+      </LabelMark>
+    </ColorBar>
+  </AverageStrengthMethod>
+  <AdditiveStrengthMethod insertMethod="" renderMode="" sampleDistance="" colorMethod="" gradientMap="" opacity="">
+    <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+      <Text text="" fontSize=""></Text>
+      <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+      </LabelMark>
+    </ColorBar>
+  </AdditiveStrengthMethod>
+</Parameters>-->
+
+
+
+<!--
+GSliceMap
+-->
+
+<!--<Parameters putIn="" putIndex="" lightOn="" opacityValue="" colorMethod="" gradientMap="">
+  <CuttingPlane direction="" centerOffset="">
+    <NormalInfo m_x="" m_y="" m_z="">
+    </NormalInfo>
+  </CuttingPlane>
+  <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+    <Text text="" fontSize=""></Text>
+    <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+    </LabelMark>
+  </ColorBar>
+</Parameters>-->
+
+
+
+<!-- GIsoSurfaceNode
+-->
+
+
+<Parameters putIn="" putIndex="" CriticalValue="" isCalculaeVolume="" volumeBigerThanCriticalValue="" volumeSmallerThanCriticalValue="">
+  <IsoSurfaceRender colorMethod="" gradientMap="">
+  </IsoSurfaceRender>
+  <Materials hightLightStrength="" glossiness="" opacity="">
+    <ColorRgb rgb_r="" rgb_g="" rgb_b="">
+    </ColorRgb>
+    <ColorBar displayOn="" direction="" xpos="" ypos="" width="" height="">
+      <Text text="" fontSize=""></Text>
+      <LabelMark num="" fondSize="" customOn="" type="" decimalDigits="" preText="" lastText="">
+      </LabelMark>
+    </ColorBar>
+  </Materials>
+</Parameters>

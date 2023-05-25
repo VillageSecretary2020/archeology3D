@@ -1,0 +1,292 @@
+/*https://blog.csdn.net/liushao1031177/article/details/117412843*/
+源对象
+本节我们提供了对源对象的一个简要描述。源对象发动可视化管线。注意阅读器（读文件的源对象）没有在这里列出。
+
+		vtkBooleanTexture——创建一个基于内部，外部组合，和在隐式函数上的2D纹理图片（结构化点）。
+		vtkConeSource——产生一个核的一个多边形表示
+		vtkCubeSource——产生一个立方体的一个多边形表示
+		vtkCursor3D——产生一个给定一个bounding box和焦点的3D指针（表示为线）
+		vtkCylinderSource——产生一个圆柱体的一个多边形表示
+		vtkDiskSource——产生一个核的一个多边形表示
+		vtkEarthSource——产生一个地球的一个多边形表示
+		vtkImageCanvasSource2D——通过使用基本的形状绘画来创建一个图象
+		vtkImageEllipsoidSource——创建一个椭圆体分布的图象
+		vtkImageGaussianSource——创建一个Gaussian分布的图象
+		vtkImageMandelbrotSource——创建一个Mandelbrot集的图象
+		vtkImageNoiseSource——创建一个填满噪声的图象
+		vtkImageSinusoidSource——创建一个Sinusoid正弦曲线值的图象
+		vtkLineSource——产生一个核的一个多边形表示
+		vtkOutLineSource——产生一个核的一个多边形表示
+		vtkPlaneSource——产生一个核的一个多边形表示
+		vtkPointLoad——产生来自一个半—无穷区域上一个点负荷的一个张量区域
+		vtkPointSetSource——使用正弦曲线图象值创建一个图象
+		vtkPointSource——产生一个核的一个多边形表示
+		vtkProgrammableDataObjectSource——在运行时可以被规划以读或者产生一个vtkDataObject（i.e，一个区域）的一个滤波器
+		vtkProgrammableSource——在运行时可以被规划以读或者产生任意类型数据的一个滤波器
+		vtkRendererSource——把绘制器或者绘制窗口放入成像管线（对于屏幕获取是很好的）的一个成像滤波器
+		vtkSampleFunction——采样直到一个体上的一个隐式函数
+		vtkSphereSource——产生一个核的一个多边形表示
+		vtkSuperquadricSource——产生一个超二次曲面的一个多边形表示
+		vtkTextSource——创建作为一个多边形表示的文本
+		vtkTextureSphereSource——使用相关的纹理坐标创建作为一个球体的多边形表示
+		vtkTriangularTexture——产生一个三角形2D纹理图片
+		vtkVectorTexture——创建一个文本的一个多边形表示
+		vtkVideoSource——攫取视频信号作为一个图象
+
+成像滤波器
+本节我们提供了对成像滤波器的总结。 这里描述的所有滤波器把vtkImageData（或者陈旧的vtkStructurePoints）作为输入，而且产生同样类型的输出。
+
+		vtkClipVolume——使用一个隐式函数剪切一个体来产生一个四面体网络
+		vtkComositeFilter——把结构化（合成的）的点结合进一个单一的数据集中
+		vtkDividingCubes——产生作为点云的等值面
+		vtkExtractVOI——提取一个兴趣体和/或子采样体
+		vtkImageAccumulate——产生输入图象的一个柱状图
+		vtkImageAnisotropivDiffusion2D——迭代地应用一个2D漫射滤波器
+		vtkImageAnisotropivDiffusion3D——迭代地应用一个3D漫射滤波器
+		vtkImageAppend——把多输入图象并入一个输出图象
+		vtkImageAppendComonents——合并来自两个输入图象的成分
+		vtkImageBlend——根据为每个输入设定的alpha值和/或不透明性混和多个图象
+		vtkImageButterworthHighPass——应用高通滤波器
+		vtkImageButterworthLowPass——应用低通滤波器
+		vtkImageCacheFilter——未来避免管线重新执行的高速缓冲存储器图象
+		vtkImageCanvasSource2D——基本的图象显示/元素绘画功能
+		vtkImageCast——把输入图象投射到一个特定的输出类型
+		vtkImageCityBlockDistance——使用city block度量创建一个距离图片
+		vtkImageClip——压缩输入图象的大小
+		vtkImageCompose——使用像素和Z—缓冲器数据的合成的多个图象
+		vtkImageConstantPad——使用一个常量值pad输入图象
+		vtkImageContinuousDilate3D——在一个椭球体临近区域内赋予最大值
+		vtkImageContinuousErode3D——在一个椭球体临近区域内赋予最小值
+		vtkImageCorrelation——创建两个输入图象的一个相关图象
+		vtkImageCursor3D——把一个指针添加到输入图象上去
+		vtkImageDataStreamer——对图象数据开始流动
+		vtkImageDataToPolyData Filter——把一个图象转化为多边形
+		vtkImageDifference——产生两个图象的一个差别图象/误差值
+		vtkImageDilateErode3D——在一个边界上执行扩大/侵蚀操作
+		vtkImageDivergence——创建一个表示了输入向量区域改变率的一个标量区域
+		vtkImageDotProduct——创建来自两个向量图象的一个点积图象
+		vtkImageEuclideanToPolar——把2DEuclidean坐标转化为一个极坐标
+		vtkImageExtractComonents——提取输入图象成分的一个子集
+		vtkImageFFT——执行一个快速傅立叶变换
+		vtkImageFlip——围绕一个特定的轴翻转一个图象
+		vtkImageFourierCenter——从原点到中心移动0度
+		vtkImageGaussianSmooth ——执行1D，2D，3D Gaussian 卷积
+		vtkImageGradient——计算一个图象的梯度向量
+		vtkImageGradientMagnitude——计算梯度向量的大小
+		vtkImageHSVToRGB——把HSV转换为RGB
+		vtkImageHybridMedian2D——当保持线/角落时执行一个中值滤波器
+		vtkImageIdealHighPass——执行一个简单的频率域高通滤波器
+		vtkImageIdealLowPass——执行一个简单的频率域低通滤波器
+		vtkImageIslandRemoval2D——移走来自图象的所有小串
+		vtkImageLaplacian——计算Laplacian（梯度的散度）
+		vtkImageLogarithmicScale——执行一个逻辑操作：AND，OR，XOR，NAND，NOR，NOT
+		vtkImageLuminance——计算一个RGB图象的亮度
+		vtkImageMagnify——通过一个整数缩放因子放大图象
+		vtkImageMagnitude——计算一个图象成分的大小
+		vtkImageMapToColors——通过一个查找表投射一个图象
+		vtkImageMarchingCubes——MarchingCubes的一个流动版本
+		vtkImageMask——把一个面具应用于一个图象
+		vtkImageMaskBits——把一个位—面具类型应用于图象成分
+		vtkImageMathematics——把基本的数学操作应用于一个或者两个图象
+		vtkImageMedian3D——计算一个矩形临近区域内的一个中值滤波器
+		vtkImageMirrorPad——使用一个Mirror图象Pad输入图象
+		vtkImageNonMaximumSuppression——执行非最大的抑制
+		vtkImageNormalize——标准化一个图象的标量成分
+		vtkImageOpenClose3D——执行两个扩大/侵蚀操作
+		vtkImagePermute——改变一个图象轴的次序
+		vtkImageQuantizeRGBToIndex——把一个RGB图象量子化为一个索引图象和一个查找表
+		vtkImageRange3D——计算一个椭圆体临近的范围
+		vtkImageResample——重新采样一个图象，使其更大或者更小
+		vtkImageRFFT——执行一个Reverse 快速傅立叶变换
+		vtkImageRGBToHSV——把RGB成分转化为HSV
+		vtkImageReslice——沿着一个特定的轴Reslice重新划分体
+		vtkImageSeedConnectivity——使用用户被提供的种子赋予连通性
+		vtkImageShiftScale——在输入图象上执行一个交换和缩放操作
+		vtkImageShrink3D——通过在一个不规则的栅格上子采样来收缩一个图象
+		vtkImageSkeleton2D——执行一个2D上的Skeleton基础操作
+		vtkImageSobel2D——使用Sobel函数计算一个图象的向量域
+		vtkImageSobel3D——使用Sobel函数计算一个体的向量域
+		vtkImageThreshold——执行二进制或者连续的极限操作
+		vtkImageVariance3D——计算一个椭圆体临近内的变量
+		vtkImageWrapPad——在像素索引上使用一个mod操作来pad一个图象
+		vtkLinkEdgels——把边缘连接在一起形成数字曲面
+		vtkMarchingCubes——高性能的等值面算法
+		vtkMarchingSquares——2D上高性能的等值面算法
+		vtkRecursiveDividingCubes——产生作为点云的一个等值面
+		vtkStructuredPointsGeometryFilter——提取出几何（点，线，面）作为vtkPolyData
+		vtkSweptSurface——产生一个移动部分的扫频表面
+		vtkSynchronizedTemplates2D——2D上高性能的等值面算法
+		vtkSynchronizedTemplates3D——3D上高性能的等值面算法
+
+可视化滤波器
+下面的类被组织成它们输入的数据的类型。每个类包括一个简要的描述.
+
+可视化滤波器（输入类型vtkDataSet）。
+这些滤波器会处理任何类型的数据集（即，vtkDataSet的子类）
+
+		vtkAppendFilter——把一个或者多个数据集添加到一个单一的非结构化的网络
+		vtkAsynchronousBuffer——导致异步管线执行
+		vtkAttributeDataToFilterDataFilter——把属性数据（点或者单元）变换为区域数据
+		vtkBrownianPoints——把随机的向量赋予点
+		vtkCastToConcrete——把输入的一个抽象类型（e.g，vtkDataSet）投射为一个具体的形式（e.g，vtkPolyData）
+		vtkCellCenters——产生组成单元中心的点（vtkPolyData）
+		vtkCellDataToPointData——把单元数据转化为点数据
+		vtkCellDerivatives——计算标量和向量的导数
+		vtkClipDataSet——使用一个隐式函数Clip修剪任意的vtkDataSets
+		vtkConnectivityFilter——把连接的单元提取到一个非结构化的网络
+		vtkContourFilter——产生等值面
+		vtkCutter——产生一个来自一个n维数据集的n-1维的剪切平面
+		vtkDashedStreamLine——产生表示消逝时间的dash的一个流水线
+		vtkDataSetToDataObjectFilter——把一个数据集转化为一个通常的数据对象
+		vtkDicer——产生基于空间（或者其它）分割的数据值
+		vtkEdgePoints——产生沿着与等值面值交叉的边缘的点
+		vtkElevationFilter——根据沿着向量的投射产生标量
+		vtkExtractEdges——提取作为线的一个数据集的边缘
+		vtkExtractGeometry——提取位于一个隐式函数内部或者外部的单元
+		vtkExtractTensorComonents——提取一个张量的成分作为标量，向量，法线，或者纹理坐标
+		vtkFieldDataToAttributeDataFilter——把通常的区域数据转化为点或者单元属性数据
+		vtkGaussianSplatter——通过使用一个Gaussian分布splatting点来产生一个体内的标量区域
+		vtkGeometryFilter——提取来自一个数据集的表面几何；把一个数据集转化为vtkPolyData
+		vtkGlyph2D——vtkGlyph3D的一个2D特殊化。平移，旋转，缩放限制于x-y平面
+		vtkGlyph3D——把一个vtkPolyData（定义了Glyph的第二个输入）复制到输入的每个点上
+		vtkGraphLayout——把非直接的图表进行满意的安排
+		vtkHedgeHog——在来自相关向量区域的每个点上产生缩放的和定向的线
+		vtkHyperStreamline——使用张量数据产生一个流管,穿越部件的流管根据特征向量被覆盖
+		vtkldFilter——产生整数id值（对于plotting是有用的）
+		vtkImplicitModeller——产生来自输入几何的一个距离区域
+		vtkImplicitTextureCoords——使用一个隐式函数创建纹理坐标
+		vtkInterpolateDataSetAttributes——在两个数据集（对于动画是有用的）之间内插属性数据
+		vtkMaskPoints——选择输入点的一个子集
+		vtkMergeDataObjectFilter——合并一个数据对象和数据集以形成一个新的数据集（对分离来自解答文件的几何是有用的）
+		vtkMergeFilter——把来自不同数据集的块合并进入一个单一的数据集
+		vtkOBBDicer——使用定向bounding box把一个数据集分割为块
+		vtkOutlineFilter——创建一个围绕数据集的轮廓
+		vtkPointDataToCellData——把点数据转化为单元数据
+		vtkProbeFilter——使用其它的对一个数据集进行采集，重采样
+		vtkProgrammableAttributeDataFilter——操作于数据属性的一个运行可编程滤波器
+		vtkProgrammableFilter——一个运行可编程滤波器
+		vtkProgrammableGlyphFilter——一个运行可编程滤波器，它可以产生根据数据值的任意变化的图表
+		vtkProjectedTexture——产生投射到一个任意表面上的纹理坐标
+		vtkSelectVisiblePoints——选择可见的点的子集；隐藏点被精选出来
+		vtkShepardMethod——重新把一个点集采样进一个体
+		vtkShrinkFilter——收缩一个数据集的单元
+		vtkSimpleElevationFilter——根据z坐标值产生标量
+		vtkSpatialRepresentationFilter——创建空间研究（i.e，定位器）对象的一个多边形表示
+		vtkStreamer——抽象超类执行向量区域的微粒集成，积分
+		vtkStreamLine——产生来自一个向量区域的流线
+		vtkStreamPoints——产生沿着来自一个向量区域的流线的一个点集
+		vtkSurfaceReconstructionFilter——构建来自非组织化点的一个表面
+		vtkTensorGlyph——根据张量值产生图表
+		vtkTextureMapToBox——产生一个3D纹理坐标
+		vtkTextureMapToCylinder——使用圆柱体坐标产生一个2D纹理坐标
+		vtkTextureMapToPlane——通过把数据投射到一个平面上产生一个2D纹理坐标
+		vtkTextureMapToSphere——使用球形的坐标产生一个2D纹理坐标
+		vtkThreshold——提取标量值在一个极限区域之下，之上，之间的单元
+		vtkThresholdPoints——提取标量值在一个极限区域之下，之上，之间的点
+		vtkThresholdTextureCoords——变换（e.g，缩放，etc）纹理坐标
+		vtkTransform TextureCoords——计算基于满足的极限标准的纹理坐标
+		vtkVectorDot——计算来自向量和法线之间点集的标量
+		vtkVectorNorm——计算来自向量Euclidean规范的标量
+		vtkVectorTopology——标记向量区域消失（i.e，奇异存在）的点
+		vtkVoxelModeller——把任意的数据集转化为一个体素表示
+
+可视化滤波器（输入类型vtkPointSet)
+这些滤波器会处理作为vtkPointSet一个子类的数据集。（这些类显式地使用一个vtkPoints实例表示了它们的点）
+
+		vtkDelaunay2D——创建包括alpha形状的受限制的和不受限制的Delaunay三角剖分
+		vtkDelaunay3D——创建包括alpha形状的3D Dlaunay三角剖分
+		vtkTransformFilter——使用一个4*4变换矩阵转化点
+		vtkWarpLens——根据透镜失真转化点
+		vtkWarpScalar——根据标量值进行缩放来修改点坐标
+		vtkWarpTo——通过朝着一个点弯曲来修改点坐标
+		vtkWarpVector——通过在点向量的方向上进行缩放来修改点坐标
+
+可视化滤波器（输入类型vtkPolyData)
+		vtkAppendPolyData——把一个或者多个vtkPolyData添加到一个单一的vtkPolyData
+		vtkApproximatingSubdivisionFilter——使用一个近似的配置产生一个子分割表面
+		vtkArcPlotter——沿着一个任意的多线画数据
+		vtkButterflySubdivisionFilter——使用一个Butterfly子分割配置对一个三角形，多边形表面进行子分割
+		vtkCleanPolyData——合并一致的点，移走退化的元素
+		vtkClipPolyData——使用一个隐式函数（或者标量值）clip一个多边形数据集
+		vtkDecimate——压缩一个三角形网络中（有专利的）的三角形数目
+		vtkDecimatePro——压缩一个三角形网络中（无专利的）的三角形数目
+		vtkDepthSortPolyData——根据深度进行多边形排序，用于半透明绘制
+		vtkExtractPolyDataGeometry——提取完全位于一个隐式函数内部或者外部的多边形单元
+		vtkFeatureEdges——提取满足一定条件的边缘（特征，边界，非多种形式的边缘）
+		vtkHull——产生来自六个或者更多独立平面的一个凸起的外壳
+		vtkLinearSubdivisionFilter——使用一个线性子分割配置对一个三角形，多边形表面进行子分割
+		vtkLoopSubdivisionFilter——使用一个循环子分割配置对一个三角形，多边形表面进行子分割
+		vtkMaskPolyData——选择多边形数据的块
+		vtkPolyDataConnectivityFilter——提取连接的区域
+		vtkPolyDataNormals——产生表面法线
+		vtkQuadricClustering——对于每个大型数据集的一个decimation算法
+		vtkQuadricDecimation——使用二次曲面误差测量的一个decimation算法
+		vtkReverseSense——反转连通顺序或者表面法线的方向
+		vtkRibbonFilter——创建来自线的定向的带
+		vtkRotationalExtrusionFilter——通过转动地挤压出另外一个vtkPolyData来产生多边形数据
+		vtkRuledSurfaceFilter——构建来自两个或者多个“平行”线的一个表面。通常用来创建来自一个流线耙子的的流表面
+		vtkSelectPolyData——通过画一个环来选择多边形数据
+		vtkShrinkPolyData——通过压缩超向重心的每个单元来压缩多边形数据
+		vtkSmoothPolyDataFilter——使用Laplacian平滑来改善网络
+		vtkStripper——产生来自输入三角形网络的三角形条
+		vtkSubPoxelPositionEdgels——根据梯度调整边缘（线）位置
+		vtkThinPlateSplineMeshWarp——使用里程碑扭曲（或变体）多边形网络
+		vtkTransformPolyDataFilter——根据一个4*4的变换矩阵变换多边形数据
+		vtkTriangleFilter——产生来自多边形或三角形条的三角形
+		vtkTriangularTCoords——产生2D三角形纹理图片
+		vtkTubeFilter——使用管子来包装线
+		vtkVoxelContoursToSurfaceFilter——把线轮廓转化为一个表面
+		vtkWindowedSincPolyDataFilter——使用一个窗口化的sin函数平滑网络
+
+可视化滤波器（(输入类型vtkStructuredGrid)。
+输入类型必须是vtkStructuredGrid。记住接受vtkDataSet和vtkPointSet的滤波器也会处理vtkStructuredGrid。
+
+		vtkExtractGrid——提取vtkStructuredGrid的一个兴趣区域/子例子
+		vtkGridSynchronizedTemplates3D——高性能的等值线算法
+		vtkStructuredGridGeometryFilter——提取作为多边形几何（点，线，表面）的栅格的一部分
+		vtkStructuredGridOutlineFilter——产生结构化栅格边界的一个线轮廓
+
+可视化滤波器（输入类型vtkUnStructuredGrid)
+这些滤波器把vtkUnStructuredGrid作为输入。记住接受vtkDataSet的滤波器也会处理vtkUnStructuredGrid。
+
+		vtkExtractUnStructuredGrid——从一个非结构化的栅格中提取一个兴趣区域，点，或单元
+		vtkSubdivideTetra——把一个四面体网络对于每个原始四面体子分割为12个四面体
+
+可视化滤波器（输入类型vtkRectilinearGrid)
+输入类型必须是vtkRectilinearGrid. 记住接受vtkDataSet和vtkPointSet的滤波器也会处理vtkRectilinearGrid.
+
+		vtkRectilinearGridGeometryFilter——接受作为多边形几何（点，线，表面）的栅格的一部分
+
+投射器对象
+这节我们提供了对于投射器对象的一个简要描述。投射器对象制止了可视化管线。每个条目包括一个简要描述（包括了它们需要的输入类型）
+
+		vtkDataSetMapper——接收作为输入的任意类型的数据集并且投射到图象系统
+		vtkImageMapper——2D图象显示
+		vtkLabeledDataMapper——把多边形数据投射到图象系统
+		vtkLabeledDataMapper2D——把vtkPolyData画到覆盖图平面上
+		vtkTextMapper——产生2D文本动画
+		vtkVolumeProMapper——通过kVolumePro硬件把体投射到一个图象上
+		vtkVolumeRayCastMapper——通过光线投射把体投射到一个图象上
+		vtkVolumeTextMapper2D——通过2D纹理把体投射到一个图象上
+
+Actor（Prop）对象
+以下是系统中一个对多种类型的vtkProp的简要描述（e.g，vtk Prop3D和vtkActor）
+
+		vtkActor2D——在一个覆盖图平面上的Prop类型
+		vtkAssembly——有共享的变换矩阵的一个有序的vtkProp3D的组
+		vtkAxisActor2D——在一个覆盖图平面上的一个单一的标记轴
+		vtkCaptionActor2D——把一个文本标题加到一个对象上
+		vtkCubeAxesActor2D——画一个vtkProp的x-y-z轴
+		vtkFollower——允许面向相机的一个vtkProp3D
+		vtkImageActor——一种特定类型的vtkProp，在一个单一多边形的顶部画一个作为纹理图片的图象
+		vtkLegendBoxActor——被vtkXYPlotActor用来画曲线图例；把文本，符号,和线结合成一个曲线图例
+		vtkLODActor——一个用来绘制3D几何的单一层次细节的摘要
+		vtkLODProp3D——vtkProp3D的层次细节方法
+		vtk Parallel Coordinates Actor——多元可视化技术
+		vtkPropAssembly——一组vtkProps
+		vtkProp3D——vtkProp的一种可变化的（i.e，有一个矩阵）类型
+		vtkScalarBarActor——一个标注好的，着色的真实地表现颜色和标量值之间关系的条
+		vtkScalarTextActor——随着视点改变大小而缩放的文本
+		vtkVolume——用于体绘制的一个vtkProp
+		vtkXYPlotActor——画一个数据的x-y图
+		
